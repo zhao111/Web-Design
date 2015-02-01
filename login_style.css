@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29 janv. 2015, 22:43:47
+    Author     : zhaoshuli
+*/
+#screen {width: 320px;
+      height: 400px;
+      border-style: solid;
+      border-color: moccasin;
+      padding: 30px;
+}
+
+header {overflow:hidden;
+        text-align: center;
+}
+
+img {float: left;}
+
+h3 {text-align: center;} 
+
+.login{padding:10px 0; 
+       overflow:hidden; 
+       clear:both; 
+       line-height:25px;
+       padding:0px;
+       margin-top: 40px;}
+.login p{float:left; 
+         text-align:right;
+         width:50%;
+         margin-right: 5px;
+         margin-top: 0px;}
+.login input {float:left;}
+
+.password{padding:10px 0; 
+          overflow:hidden; 
+          clear:both; 
+          line-height:25px;
+          padding:0px;}
+.password p {float:left; 
+             text-align:right;
+             width:50%;
+             margin-right: 5px;
+             margin-top: 0px;}
+.password input {float:left;}
+
+.Memoriser{margin-top: 30px;
+           margin-bottom: 30px;
+           text-align: center;}
+
+.button{text-align:center;}
+
+

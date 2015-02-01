@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login_style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    
+    <div id="screen">
+    
+      <header>
+        <img src="fichiers/Logo.jpg" alt="Logo">
+        <h3> Planetarium </h3>
+      </header>
+
+      <h3> Veuillez vous identifier</h3>
+
+      <form action="action.php" method="post">
+
+        <div class="login">
+          <p>Login </p>
+          <input type="text" name="login" >        
+        </div>
+
+        <div class="password">
+          <p>Mot de passe </p>
+          <input type="text" name="password" >        
+        </div>
+
+        <div class="Memoriser">
+          <input id="Persistent" name="memoriser" type="checkbox" value="yes"> 
+          <span> 
+            Ménoire mes identifiants 
+          </span>
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Valider"/>    
+        </div>
+
+      
+    </form>
+    </div>
+
+
+
+  </body>
+</html>

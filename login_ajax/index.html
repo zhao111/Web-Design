@@ -11,6 +11,18 @@ and open the template in the editor.
     <link rel="stylesheet" type="text/css" href="login_style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      function action(login,password,Memoriser)
+        {
+          var xmlhttp=new XMLHttpRequest();
+          var url="action.php";
+          url=url+"?login="+login;
+          url=url+"?password="+password;
+          url=url+"?Memoriser="+Memoriser;
+          xmlhttp.open("POST",url,true);
+          xmlhttp.send();
+        }
+    </script>
   </head>
   <body>
     
@@ -23,7 +35,7 @@ and open the template in the editor.
 
       <h3> Veuillez vous identifier</h3>
 
-      <form action="action.php" method="post">
+      <form>
 
         <div class="style">
           <p>Login </p>
@@ -43,7 +55,7 @@ and open the template in the editor.
         </div>
 
         <div class="button">
-          <input type="submit" value="Valider"/>    
+          <input type="submit" value="Valider" onclick="action(login,password,Memoriser)"/>    
         </div>
 
       

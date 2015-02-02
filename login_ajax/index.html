@@ -12,24 +12,17 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-      function createRequest() {
-        return new XMLHttpRequest();
-      }
-      function valider(evt)
+      function valider()
       {
-        request = new createRequest();
+        request = new XMLHttpRequest();
         var url = "action.php";
         request.open("POST", url, true);
         request.onreadystatechange = processResponse;
-
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        params = "login=" + document.getElementById("login").value;
-        params = params + "&password=" + document.getElementById("password").value;
-        params = params + "&Memoriser=" + document.getElementById("Memoriser").value;
-        request.send(params);
-
-        return false;
+        postStr = "login=" + documen.getElementById("login").value;
+        postStr = postStr + "&password=" + documen.getElementById("password").value;
+        postStr = postStr + "&Memoriser=" + documen.getElementById("Memoriser").value;
+        request.send(postStr);
       }
       function processResponse()
       {

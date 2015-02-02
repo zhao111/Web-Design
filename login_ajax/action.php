@@ -30,8 +30,26 @@
 	}
 
 	if ($restart) {
-		print "Identifiants erronés";
+		$theFile = "index.html";
+		$File = fopen($theFile, "r");
+		$thesize = filesize($theFile);
+		$data = fread($File, $thesize);
+		fclose($File);
+	
+		$upper = strtoupper($data);
+		if ((strpos($upper, "UTF8") > 0) || (strpos($upper, "UTF-8") > 0)) {
+			$data = utf8_decode($data);
+		}
+
+		print $data;
 	} else {
+		print "<!DOCTYPE html>\n";
+		print "<html lang=\"fr-fr\">\n";
+		print "<head>\n";
+		print "<title>... Success ...</title>\n";
+		print "<meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\" />\n";
+		print "</head>\n";
+		print "<body>\n";
 		print "<p>It works !!!!</p>\n";
 		print "<p>Your login was : $login</p>\n";
 		print "<p>Your password was : ... do you really imagine I will write it ?</p>\n";
@@ -40,5 +58,7 @@
 		} else {
 			print "<p>You do not want me to save informations</p>\n";
 		}
+		print "</body>\n";
+		print "</html>\n";
 	}
 ?>

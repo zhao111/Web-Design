@@ -32,20 +32,18 @@ and open the template in the editor.
       {
         request = new createRequest();
         var url = "/action.php";
-        url = url + "?login=" + login;
-        url = url + "&password=" + password;
-        url = url + "&Memoriser=" + Memoriser;
+        var postStr = "login=" + f.login.value + "&password=" + f.password.value
+                + "&Memoriser=" + f.Memoriser.value;
         request.open("POST", url, true);
-        request.onreadystatechange = processResponse;
-        request.send(null);
-      }
-      function processResponse()
-      {
-        if (request.readyState === 4 && request.status === 200){
-          alert("Done");
-          message.innerHTML = request.responseText;
+        request.send(postStr);
+        request.onreadystatechange = function () {
+          if (request.readyState === 4 && request.status === 200) {
+              alert("Done");
+              message.innerHTML = request.responseText;
+            }
+          }
         }
-      }
+
     </script>
   </head>
   <body>

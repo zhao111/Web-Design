@@ -13,7 +13,9 @@ and open the template in the editor.
       border-color: moccasin;
       padding: 30px;
 }
-
+＃login{}
+＃password{}
+＃Memoriser{}
 header {overflow:hidden;
         text-align: center;
 }

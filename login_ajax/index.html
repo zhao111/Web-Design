@@ -12,16 +12,32 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
+      function createRequest() {
+        try {
+          request = new XMLHttpRequest();
+        } catch (tryMS) {
+          try {
+            request = new ActiveXObject("Msxml2.XMLHTTP");
+          } catch (otherMS) {
+            try {
+              request = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (failed) {
+              request = null;
+            }
+          }
+        }
+        return request;
+      }
       function action(login, password, Memoriser)
       {
-        xmlhttp = new XMLHttpRequest();
+        request = new createRequest();
         var url = "action.php";
         url = url + "?login=" + login;
         url = url + "?password=" + password;
         url = url + "?Memoriser=" + Memoriser;
-        xmlhttp.open("POST", url, true);
-        xmlhttp.onreadystatechange = processResponse;
-        xmlhttp.send(null);
+        request.open("POST", url, true);
+        request.onreadystatechange = processResponse;
+        request.send(null);
       }
       function processResponse()
       {

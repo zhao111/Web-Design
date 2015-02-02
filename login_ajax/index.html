@@ -12,39 +12,24 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-      function createRequest() {
-        try {
-          request = new XMLHttpRequest();
-        } catch (tryMS) {
-          try {
-            request = new ActiveXObject("Msxml2.XMLHTTP");
-          } catch (otherMS) {
-            try {
-              request = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (failed) {
-              request = null;
-            }
-          }
-        }
-        return request;
-      }
-
-      function action()
+      function valider()
       {
-        request = new createRequest();
-        var url = "action.php?";
-        var name = documen.getElementById("login");
-        var password = documen.getElementById("password");
-        var Memoriser = documen.getElementById("Memoriser");
-        var postStr = "login=" + name + "&password=" + password + "&Memoriser=" + Memoriser;
+        request = new XMLHttpRequest();
+        var url = "action.php";
         request.open("POST", url, true);
+        request.onreadystatechange = processResponse;
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        postStr = "login=" + documen.getElementById("login").value;
+        postStr = postStr + "&password=" + documen.getElementById("password").value;
+        postStr = postStr + "&Memoriser=" + documen.getElementById("Memoriser").value;
         request.send(postStr);
-        request.onreadystatechange = function () {
-          if (request.readyState === 4) {
-            if (request.status === 200) {
-              alert("Done");
-              message.innerHTML = request.responseText;
-            }
+      }
+      function processResponse()
+      {
+        if (request.readyState === 4) {
+          if (request.status === 200) {
+            alert("Done");
+            message.innerHTML = request.responseText;
           }
         }
       }
@@ -64,28 +49,30 @@ and open the template in the editor.
 
       <div id="message"></div>
 
-      <div class="style">
-        <p>Login </p>
-        <input type="text" name="login" id="login">        
-      </div>
+      <form onsubmit="valider()">
 
-      <div class="style">
-        <p>Mot de passe </p>
-        <input type="text" name="password" id="password" >        
-      </div>
+        <div class="style">
+          <p>Login </p>
+          <input type="text" name="login" id="login">        
+        </div>
 
-      <div class="Memoriser">
-        <input id="Memoriser" name="Memoriser" type="checkbox" value="yes">
-        <span> 
-          Memoire mes identifiants
-        </span>
-      </div>
+        <div class="style">
+          <p>Mot de passe </p>
+          <input type="text" name="password" id="password" >        
+        </div>
 
-      <div class="button">
-        <input type="submit" value="Valider" onclick="action()"/>    
+        <div class="Memoriser">
+          <input id="Memoriser" name="Memoriser" type="checkbox" value="yes">
+          <span> 
+            Memoire mes identifiants
+          </span>
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Valider"/>    
 
 
-      </div>
+        </div>
     </div>
 
 

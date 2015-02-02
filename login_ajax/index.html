@@ -15,7 +15,7 @@ and open the template in the editor.
       function createRequest() {
         return new XMLHttpRequest();
       }
-      function valider(evt)
+      function valider()
       {
         request = new createRequest();
         var url = "action.php";
@@ -28,8 +28,6 @@ and open the template in the editor.
         params = params + "&password=" + document.getElementById("password").value;
         params = params + "&Memoriser=" + document.getElementById("Memoriser").value;
         request.send(params);
-
-        return false;
       }
       function processResponse()
       {
@@ -56,7 +54,7 @@ and open the template in the editor.
 
       <div id="message"></div>
 
-      <form onsubmit="valider()">
+      <form onsubmit="valider(); return false;" action="">
 
         <div class="style">
           <p>Login </p>

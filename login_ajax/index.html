@@ -26,18 +26,21 @@ and open the template in the editor.
 
         params = "login=" + document.getElementById("login").value;
         params = params + "&password=" + document.getElementById("password").value;
-        params = params + "&Memoriser=" + document.getElementById("Persistent").value;
+        params = params + "&Memoriser=" + document.getElementById("Memoriser").value;
         request.send(params);
 
         return false;
       }
       function processResponse()
       {
-        if (request.readyState === 4 && request.status === 200){
-          alert("Done");
-          message.innerHTML = request.responseText;
+        if (request.readyState === 4) {
+          if (request.status === 200) {
+            alert("Done");
+            message.innerHTML = request.responseText;
+          }
         }
       }
+
     </script>
   </head>
   <body>
@@ -52,7 +55,8 @@ and open the template in the editor.
       <h3> Veuillez vous identifier</h3>
 
       <div id="message"></div>
-      <form name="user_info" onsubmit="valider()" > 
+
+      <form onsubmit="valider()">
 
         <div class="style">
           <p>Login </p>
@@ -61,23 +65,24 @@ and open the template in the editor.
 
         <div class="style">
           <p>Mot de passe </p>
-          <input type="text" name="password" id="password">        
+          <input type="text" name="password" id="password" >        
         </div>
 
         <div class="Memoriser">
-          <input id="Persistent" name="Memoriser" type="checkbox" value="yes" >
+          <input id="Memoriser" name="Memoriser" type="checkbox" value="yes">
           <span> 
             Memoire mes identifiants
           </span>
         </div>
 
         <div class="button">
-          <input type="submit" value="Valider" />    
+          <input type="submit" value="Valider"/>    
 
-      </form>
 
+        </div>
     </div>
-  </div>
 
-</body>
+
+
+  </body>
 </html>

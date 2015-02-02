@@ -13,20 +13,7 @@ and open the template in the editor.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
       function createRequest() {
-        try {
-          request = new XMLHttpRequest();
-        } catch (tryMS) {
-          try {
-            request = new ActiveXObject("Msxml2.XMLHTTP");
-          } catch (otherMS) {
-            try {
-              request = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (failed) {
-              request = null;
-            }
-          }
-        }
-        return request;
+        return new XMLHttpRequest();
       }
       function action(f)
       {
